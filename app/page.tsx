@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
-import 'facebook.css'; <link rel="stylesheet" href="/facebook.css" />
+
+ <link rel="stylesheet" href="/facebook.css" />
 export default function Home() {
   return (
     <html lang="it">
