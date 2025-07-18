@@ -20,7 +20,7 @@ export default function Home() {
         <footer className="meta-footer">
           
           <div className="meta-links">
-          <img src="/meta.png" alt="Logo Meta" className="meta-logo" />  <a href="#">Informazioni</a>
+          <img align="center" src="/meta.png" alt="Logo Meta" className="meta-logo" />  <a href="#">Informazioni</a>
             <a href="#">Centro assistenza</a>
             <a href="#">Altro</a>
           </div>
