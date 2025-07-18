@@ -1,10 +1,11 @@
-'use client';
-
-
- <link rel="stylesheet" href="/facebook.css" />
-export default function Home() {
+'use client' export default function Home() {
   return (
-    <html lang="it">
+    <html lang="it">export default function Page() {
+  return (
+    <>
+      <head>
+        <link rel="stylesheet" href="/facebook.css" />
+      </head>
       <body>
         <div className="top-banner">
           <p>📥 Scarica Facebook per Android per navigare più velocemente.</p>
@@ -38,3 +39,5 @@ export default function Home() {
     </html>
   );
             }
+
+      
