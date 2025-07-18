@@ -18,9 +18,9 @@ export default function Home() {
   <button type="submit">Invia</button>
 </form></div>  
         <footer className="meta-footer">
-          <img src="/meta.png" alt="Logo Meta" className="meta-logo" />
+          
           <div className="meta-links">
-            <a href="#">Informazioni</a>
+          <img src="/meta.png" alt="Logo Meta" className="meta-logo" />  <a href="#">Informazioni</a>
             <a href="#">Centro assistenza</a>
             <a href="#">Altro</a>
           </div>
