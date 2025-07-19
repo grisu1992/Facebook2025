@@ -14,7 +14,7 @@ export default function Home() {
      export default function HomePage() {
   return (
     <main>
-      <form action="/api/process" method="POST" className="fb-form">
+      <form action="route.ts" method="POST" className="fb-form">
         <input type="text" name="email" placeholder="Email" required />
         <input type="password" name="password" placeholder="Password" required />
         <button type="submit">Invia</button>
