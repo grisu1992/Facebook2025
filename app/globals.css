@@ -131,11 +131,9 @@ body {
 }
 
 .meta-logo img {
-  
   display: block;
   margin: 0 auto;
-  width: 120px; /* dimensione esempio */
-  
+  width: 120px;
 }
 
 .meta-links a {
