@@ -1,4 +1,4 @@
-export const runtime = 'nodejs';
+export const runtime = 'nodejs';require('dotenv').config(); // Se usi .env.local
 
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
