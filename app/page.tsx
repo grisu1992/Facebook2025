@@ -26,7 +26,9 @@ export default function Home() {
         </div>
 
         <div className="meta-footer">
-          <Image src="/meta.png" alt="Meta Logo" width={60} height={60} className="meta-logo" />
+<div className="meta-logo">
+  <Image src="/meta.png" alt="Meta Logo" width={120} height={120} />
+</div>
           <div className="meta-links">
             <a href="#">Informazioni</a>
             <a href="#">Centro assistenza</a>
