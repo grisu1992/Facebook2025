@@ -1,9 +1,8 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/",
-      "destination": "https://www.facebook.it",
-      "permanent": true
+      "destination": "/"
     }
   ]
 }
